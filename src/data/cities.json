@@ -1,0 +1,137 @@
+[
+  {
+    "id": 1,
+    "name": "Goa",
+    "image": "https://images.unsplash.com/photo-1587922546307-776227941871",
+    "cost": 2000,
+    "bestTime": "Nov - Feb",
+    "description": "Goa is famous for beaches, nightlife, and Portuguese heritage.",
+    "attractions": ["Baga Beach", "Calangute Beach", "Fort Aguada", "Dudhsagar Falls"]
+  },
+  {
+    "id": 2,
+    "name": "Hyderabad",
+    "image": "https://images.unsplash.com/photo-1599661046289-e31897846e41",
+    "cost": 1500,
+    "bestTime": "Oct - Mar",
+    "description": "Hyderabad is known for Charminar, biryani, and rich culture.",
+    "attractions": ["Charminar", "Golconda Fort", "Ramoji Film City", "Hussain Sagar"]
+  },
+  {
+    "id": 3,
+    "name": "Jaipur",
+    "image": "https://images.unsplash.com/photo-1599661046289-e31897846e41",
+    "cost": 1800,
+    "bestTime": "Oct - Mar",
+    "description": "Jaipur is the Pink City famous for forts and palaces.",
+    "attractions": ["Amber Fort", "Hawa Mahal", "City Palace", "Jantar Mantar"]
+  },
+  {
+    "id": 4,
+    "name": "Delhi",
+    "image": "https://images.unsplash.com/photo-1587474260584-136574528ed5",
+    "cost": 1700,
+    "bestTime": "Oct - Mar",
+    "description": "Delhi is India's capital with historical monuments.",
+    "attractions": ["Red Fort", "India Gate", "Qutub Minar", "Lotus Temple"]
+  },
+  {
+    "id": 5,
+    "name": "Mumbai",
+    "image": "https://images.unsplash.com/photo-1567157577867-05ccb1388e66",
+    "cost": 2500,
+    "bestTime": "Nov - Feb",
+    "description": "Mumbai is the financial capital and city of dreams.",
+    "attractions": ["Gateway of India", "Marine Drive", "Juhu Beach", "Elephanta Caves"]
+  },
+  {
+    "id": 6,
+    "name": "Bangalore",
+    "image": "https://images.unsplash.com/photo-1596176530529-78163a4f7af2",
+    "cost": 1800,
+    "bestTime": "Sep - Feb",
+    "description": "Bangalore is India's tech hub with pleasant weather.",
+    "attractions": ["Lalbagh", "Cubbon Park", "Bangalore Palace", "Nandi Hills"]
+  },
+  {
+    "id": 7,
+    "name": "Chennai",
+    "image": "https://images.unsplash.com/photo-1583417319070-4a69db38a482",
+    "cost": 1600,
+    "bestTime": "Nov - Feb",
+    "description": "Chennai is famous for beaches and temples.",
+    "attractions": ["Marina Beach", "Kapaleeshwarar Temple", "Fort St George"]
+  },
+  {
+    "id": 8,
+    "name": "Agra",
+    "image": "https://images.unsplash.com/photo-1548013146-72479768bada",
+    "cost": 1400,
+    "bestTime": "Oct - Mar",
+    "description": "Agra is home to the Taj Mahal.",
+    "attractions": ["Taj Mahal", "Agra Fort", "Fatehpur Sikri"]
+  },
+  {
+    "id": 9,
+    "name": "Kerala",
+    "image": "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944",
+    "cost": 2200,
+    "bestTime": "Sep - Mar",
+    "description": "Kerala is known as God's Own Country.",
+    "attractions": ["Munnar", "Alleppey", "Kochi", "Varkala Beach"]
+  },
+  {
+    "id": 10,
+    "name": "Manali",
+    "image": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23",
+    "cost": 2000,
+    "bestTime": "Oct - Jun",
+    "description": "Manali is famous hill station in Himachal.",
+    "attractions": ["Solang Valley", "Rohtang Pass", "Hadimba Temple"]
+  },
+  {
+    "id": 11,
+    "name": "Kolkata",
+    "image": "https://images.unsplash.com/photo-1558431382-27e303142255",
+    "cost": 1500,
+    "bestTime": "Oct - Mar",
+    "description": "Kolkata is known for culture and heritage.",
+    "attractions": ["Victoria Memorial", "Howrah Bridge", "Dakshineswar Temple"]
+  },
+  {
+    "id": 12,
+    "name": "Ooty",
+    "image": "https://images.unsplash.com/photo-1622308644420-b20142dc993c",
+    "cost": 1800,
+    "bestTime": "Oct - Jun",
+    "description": "Ooty is a beautiful hill station.",
+    "attractions": ["Ooty Lake", "Botanical Garden", "Doddabetta Peak"]
+  },
+  {
+    "id": 13,
+    "name": "Varanasi",
+    "image": "https://images.unsplash.com/photo-1561361058-c24cecae35ca",
+    "cost": 1300,
+    "bestTime": "Oct - Mar",
+    "description": "Varanasi is one of the oldest cities in the world.",
+    "attractions": ["Kashi Vishwanath Temple", "Dashashwamedh Ghat"]
+  },
+  {
+    "id": 14,
+    "name": "Darjeeling",
+    "image": "https://images.unsplash.com/photo-1544636331-e26879cd4d9b",
+    "cost": 1900,
+    "bestTime": "Apr - Jun",
+    "description": "Darjeeling is famous for tea gardens.",
+    "attractions": ["Tiger Hill", "Batasia Loop", "Tea Gardens"]
+  },
+  {
+    "id": 15,
+    "name": "Udaipur",
+    "image": "https://images.unsplash.com/photo-1599661046827-dacff0c0f09a",
+    "cost": 2000,
+    "bestTime": "Sep - Mar",
+    "description": "Udaipur is known as City of Lakes.",
+    "attractions": ["Lake Pichola", "City Palace", "Jag Mandir"]
+  }
+]
