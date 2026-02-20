@@ -1,98 +1,82 @@
-import cities from "../data/cities.json";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function Account() {
 
   const navigate = useNavigate();
+  const [bookings, setBookings] = useState([]);
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
-  const user =
-    JSON.parse(localStorage.getItem("user"));
+  useEffect(() => {
 
-  const booking =
-    JSON.parse(localStorage.getItem("booking"));
+    if (!currentUser) {
+      navigate("/login");
+      return;
+    }
 
-  if (!user) {
+    const savedBookings =
+      JSON.parse(localStorage.getItem(`bookings_${currentUser.email}`)) || [];
 
-    return (
+    setBookings(savedBookings);
 
-      <div className="container">
+  }, []);
 
-        <h2>Please login first</h2>
+  const handleLogout = () => {
+    localStorage.removeItem("currentUser");
+    navigate("/login");
+  };
 
-        <button onClick={() => navigate("/login")}>
-          Go Login
-        </button>
+  const handleDelete = (index) => {
 
-      </div>
+    const updatedBookings = bookings.filter((_, i) => i !== index);
 
+    localStorage.setItem(
+      `bookings_${currentUser.email}`,
+      JSON.stringify(updatedBookings)
     );
 
-  }
-
-  const city =
-    booking &&
-    cities.find(
-      c => c.id === booking.cityId
-    );
-
-  const logout = () => {
-
-    localStorage.removeItem("user");
-    localStorage.removeItem("booking");
-
-    alert("Logged out");
-
-    navigate("/");
-
+    setBookings(updatedBookings);
   };
 
   return (
+    <div style={{ padding: "20px" }}>
 
-    <div className="container">
+      <h2>Welcome {currentUser?.email}</h2>
 
-      <h1>Welcome {user.name}</h1>
+      <h3>Your Bookings</h3>
 
-      <button onClick={logout}>
+      {bookings.length === 0 ? (
+        <p>No bookings yet</p>
+      ) : (
+        bookings.map((b, index) => (
+          <div
+            key={index}
+            style={{
+              border: "1px solid gray",
+              padding: "10px",
+              marginBottom: "10px"
+            }}
+          >
+            <p><strong>City:</strong> {b.cityName}</p>
+            <p><strong>Days:</strong> {b.days}</p>
+            <p><strong>Total:</strong> ₹{b.total}</p>
+            <p><strong>Date:</strong> {b.date}</p>
+
+            <button onClick={() => handleDelete(index)}>
+              Delete Booking
+            </button>
+          </div>
+        ))
+      )}
+
+      <br />
+
+      <button onClick={handleLogout}>
         Logout
       </button>
 
-      <h2>Your Booking</h2>
-
-      {city ? (
-
-        <div>
-
-          <img
-            src={city.image}
-            width="300"
-          />
-
-          <h3>{city.name}</h3>
-
-          <p>{city.description}</p>
-
-          <p>Best Time: {city.bestTime}</p>
-
-          <p>Total Cost: ₹{booking.total}</p>
-
-          <p>Date: {booking.date}</p>
-
-          <h3>
-            Booking Confirmed ✅
-          </h3>
-
-        </div>
-
-      ) : (
-
-        <p>No booking yet</p>
-
-      )}
-
     </div>
-
   );
-
 }
 
 export default Account;

@@ -2,74 +2,84 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
+  const [isSignUp, setIsSignUp] = useState(false);
+  const [form, setForm] = useState({ email: "", password: "" });
   const navigate = useNavigate();
 
-  const login = () => {
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
-    if (!email || !password) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-      alert("Enter email and password");
+    const users = JSON.parse(localStorage.getItem("users")) || [];
 
-      return;
+    if (isSignUp) {
+      // SIGN UP
+      const userExists = users.find(u => u.email === form.email);
 
+      if (userExists) {
+        alert("User already exists");
+        return;
+      }
+
+      users.push(form);
+      localStorage.setItem("users", JSON.stringify(users));
+      localStorage.setItem("currentUser", JSON.stringify(form));
+      alert("Sign up successful!");
+      navigate("/account");
+
+    } else {
+      // LOGIN
+      const validUser = users.find(
+        u => u.email === form.email && u.password === form.password
+      );
+
+      if (!validUser) {
+        alert("Invalid credentials");
+        return;
+      }
+
+      localStorage.setItem("currentUser", JSON.stringify(validUser));
+      alert("Login successful!");
+      navigate("/account");
     }
-
-    const user = {
-
-      name: email.split("@")[0],
-
-      email: email
-
-    };
-
-    localStorage.setItem(
-      "user",
-      JSON.stringify(user)
-    );
-
-    alert("Login successful");
-
-    navigate("/account");
-
   };
 
   return (
+    <div>
+      <h2>{isSignUp ? "Sign Up" : "Sign In"}</h2>
 
-    <div className="container">
+      <form onSubmit={handleSubmit}>
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          onChange={handleChange}
+          required
+        />
 
-      <h2>Login</h2>
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          onChange={handleChange}
+          required
+        />
 
-      <input
-        placeholder="Email"
-        onChange={(e) =>
-          setEmail(e.target.value)
-        }
-      />
+        <button type="submit">
+          {isSignUp ? "Sign Up" : "Sign In"}
+        </button>
+      </form>
 
-      <br />
-
-      <input
-        type="password"
-        placeholder="Password"
-        onChange={(e) =>
-          setPassword(e.target.value)
-        }
-      />
-
-      <br />
-
-      <button onClick={login}>
-        Login
-      </button>
-
+      <p onClick={() => setIsSignUp(!isSignUp)} style={{ cursor: "pointer" }}>
+        {isSignUp
+          ? "Already have an account? Sign In"
+          : "Don't have an account? Sign Up"}
+      </p>
     </div>
-
   );
-
 }
 
 export default Login;
