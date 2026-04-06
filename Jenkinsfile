@@ -1,4 +1,3 @@
-
 pipeline {
     agent any
 
@@ -6,7 +5,7 @@ pipeline {
 
         stage('Clone') {
             steps {
-                git 'https://github.com/lakshmi-254/virtual-travel-app.git'
+                git branch: 'main', url: 'https://github.com/lakshmi-254/virtual-travel-app.git'
             }
         }
 
